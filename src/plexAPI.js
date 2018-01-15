@@ -1,5 +1,3 @@
-const plexConf = require("./plex.config");
-
 const logger = require("./logger");
 const axios = require("axios");
 const xmlParser = require("xml2json");
@@ -14,15 +12,23 @@ const docsSectionURLAll = `${docsSectionURL}${all}`;
 
 const watchLaterVideosURL = "https://plex.tv/pms/playlists/queue/all?X-Plex-Product=Plex%20Web&X-Plex-Version=3.23.1&X-Plex-Client-Identifier=gp4hnyrwrhpdda14vtku170z&X-Plex-Platform=Chrome&X-Plex-Platform-Version=63.0&X-Plex-Device=OSX&X-Plex-Device-Name=Plex%20Web%20%28Chrome%29&X-Plex-Device-Screen-Resolution=640x736%2C1440x900&X-Plex-Token=PVJbhQuynXUx7KXcKB7b";
 
-const client = new PlexAPI({
-    hostname: plexConf.hostname,
-    username: plexConf.username,
-    password: plexConf.password
-});
+let client = null;
 
 const APICaughtError = (msg) => {
     throw Error(`[plexAPI.js] Error caught: ${msg}`)
 };
+
+const setConfig = (conf) => {
+    try {
+        client = new PlexAPI({
+            hostname: conf.hostname,
+            username: conf.username,
+            password: conf.password
+        });
+    } catch (error) {
+        APICaughtError(error)
+    }
+}
 
 
 const getDocus = () => {
@@ -87,6 +93,7 @@ const launchFileScan = () => {
 
 
 module.exports = {
+    setConfig,
     getDocus,
     getWatchLaterVideos,
     updateMetadata,

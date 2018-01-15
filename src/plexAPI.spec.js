@@ -1,6 +1,9 @@
 const assert = require('assert');
 const expect = require('chai').expect;
 const plexApi = require('./plexAPI');
+const plexConf = require("./plex.config");
+
+plexApi.setConfig(plexConf);
 
 describe('Plex Metadata Update', function() {
 
