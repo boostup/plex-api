@@ -1,1 +1,1 @@
-module.exports = require('plexAPI');
+module.exports = require('./plexAPI');
