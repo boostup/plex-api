@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boostup/plex-api"
+  },
   "scripts": {
+    "prepublish": "npm test",
     "start": "node src/index.js",
     "start:watch": "nodemon src/index.js",
     "test": "cross-env NODE_ENV=test mocha 'src/**/*.spec.js'",
