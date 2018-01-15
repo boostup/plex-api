@@ -9,7 +9,14 @@ https://github.com/Arcanemagus/plex-api/wiki
 - https://github.com/phillipj/node-plex-api
 
 ## Using this package
+
+### Installing the package
+```
 npm i @boostup/plex-api
+```
+
+### Plex client configuration
+```
 const plexApi = require('@boostup/plex-api');
 
 plexApi.setConfig({
@@ -17,6 +24,7 @@ plexApi.setConfig({
     username: "<plex username>",
     password: "<plex password>" 
 });
+```
 
 ## Developing | Contributions to this package
 Just check the available commands in the `scripts` section of the `package.json` file
