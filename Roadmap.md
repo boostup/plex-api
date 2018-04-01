@@ -1,12 +1,5 @@
 # Roadmap
 
-## authentication
-I can't push this to a public remote git repo until my username & password are harcoded in here.
-
-- try token
-- or command line args 
-- or readline prompts
-
 ## plexAPI.updateMetada()
 allow to update following metadata:
 - [x] channel name & id
